@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <section
       className="relative h-screen flex flex-col justify-center items-center text-white text-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/forest-bg.jpg')" }}
+      style={{ backgroundImage: "url('/images/forest-bg.png')" }}
       data-aos="fade-in"
     >
       <div className="bg-black bg-opacity-50 p-8 rounded-lg">
