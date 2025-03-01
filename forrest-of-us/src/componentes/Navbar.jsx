@@ -1,20 +1,49 @@
-export default function Navbar() {
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Navbar = () => {
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <a href="/" className="flex-shrink-0">
-            <img className="h-12" src="/images/logo.svg" alt="Forrest of Us logo" />
-          </a>
-          <div className="hidden md:flex space-x-8">
-            <a href="/" className="text-green-700 hover:text-green-900">Home</a>
-            <a href="/about" className="text-gray-600 hover:text-green-700">About</a>
-            <a href="/programs" className="text-gray-600 hover:text-green-700">Programs</a>
-            <a href="/events" className="text-gray-600 hover:text-green-700">Events</a>
-            <a href="/contact" className="text-gray-600 hover:text-green-700">Contact</a>
-          </div>
-        </div>
+    <nav style={styles.nav}>
+      <div style={styles.logo}>
+        <img src="/images/logo.png" alt="Forrest of Us Logo" style={styles.logoImg} />
+        <span>Forrest of Us</span>
+      </div>
+      <div style={styles.links}>
+        <Link to="/" style={styles.link}>Home</Link>
+        <Link to="/about" style={styles.link}>About</Link>
+        <Link to="/events" style={styles.link}>Events</Link>
+        <Link to="/contact" style={styles.link}>Contact</Link>
       </div>
     </nav>
   );
-}
+};
+
+const styles = {
+  nav: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: '1rem 2rem',
+    backgroundColor: '#333',
+    color: '#fff',
+    alignItems: 'center'
+  },
+  logo: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  logoImg: {
+    width: '40px',
+    height: '40px',
+    marginRight: '10px'
+  },
+  links: {
+    display: 'flex',
+    gap: '1rem'
+  },
+  link: {
+    color: '#fff',
+    textDecoration: 'none'
+  }
+};
+
+export default Navbar;
