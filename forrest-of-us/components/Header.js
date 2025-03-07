@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -18,7 +17,7 @@ const Header = () => {
           </svg>
         </button>
         {isMenuOpen && (
-          <div className="fixed top-0 right-0 h-full w-64 bg-white/75 shadow-md rounded-l-lg p-4 transition-transform transform translate-x-full duration-300 ease-in-out">
+          <div className="fixed top-0 right-0 h-full w-64 bg-white/75 shadow-md rounded-l-lg p-4 transition-transform transform translate-x-0 duration-300 ease-in-out">
             <ul className="space-y-4">
               <li>
                 <Link href="/" className="block px-4 py-2 hover:bg-gray-100 text-black">
