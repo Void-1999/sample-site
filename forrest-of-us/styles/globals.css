@@ -7,3 +7,7 @@
 .fixed {
   transition: transform 0.3s ease-in-out;
 }
+
+.bg-wood {
+  background-color: #f5deb3; /* Light brown color */
+}
