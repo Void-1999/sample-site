@@ -1,24 +1,36 @@
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Header from '../components/Header';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLearnMoreOpen, setIsLearnMoreOpen] = useState(false);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
+      const menu = document.querySelector('.fixed');
+      if (menu && !menu.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+
       const learnMoreMenu = document.querySelector('.fixed-learn-more');
       if (learnMoreMenu && !learnMoreMenu.contains(event.target)) {
         setIsLearnMoreOpen(false);
       }
     };
+
     document.addEventListener('mousedown', handleOutsideClick);
+
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const toggleLearnMore = () => {
     setIsLearnMoreOpen(!isLearnMoreOpen);
@@ -34,6 +46,44 @@ const Home = () => {
           Learn More
         </button>
       </div>
+
+      {isMenuOpen && (
+        <motion.div
+          className="fixed top-0 right-0 h-full w-64 bg-white/75 shadow-md rounded-l-lg p-4 fixed"
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '100%' }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+        >
+          <ul className="space-y-4">
+            <li>
+              <Link href="/" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                Events
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </motion.div>
+      )}
 
       {isLearnMoreOpen && (
         <motion.div
