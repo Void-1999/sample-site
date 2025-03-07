@@ -1,14 +1,13 @@
+import { MotionConfig, AnimatePresence } from 'framer-motion';
 import '../styles/globals.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Header />
-      <Component {...pageProps} className="transition animate-fade-in" />
-      <Footer />
-    </>
+    <MotionConfig reducedMotion="user">
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
+    </MotionConfig>
   );
 }
 
