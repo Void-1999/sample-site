@@ -1,14 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      const menu = document.querySelector('.fixed');
+      if (menu && !menu.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="bg-gray-800 text-white p-4">
+    <header className="bg-gray-800 text-white p-4 fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-2xl font-bold">Forrest of Us</h1>
         <button onClick={toggleMenu} className="hover:underline">
@@ -17,35 +33,41 @@ const Header = () => {
           </svg>
         </button>
         {isMenuOpen && (
-          <div className="fixed top-0 right-0 h-full w-64 bg-white/75 shadow-md rounded-l-lg p-4 transition-transform transform translate-x-0 duration-300 ease-in-out">
+          <motion.div
+            className="fixed top-0 right-0 h-full w-64 bg-white/75 shadow-md rounded-l-lg p-4"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
             <ul className="space-y-4">
               <li>
-                <a href="/" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <Link href="/" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <Link href="/services" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/events" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Events
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
         )}
       </div>
     </header>
