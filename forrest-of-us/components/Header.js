@@ -1,22 +1,7 @@
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      const menu = document.querySelector('.fixed');
-      if (menu && !menu.contains(event.target)) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleOutsideClick);
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,29 +20,29 @@ const Header = () => {
           <div className="fixed top-0 right-0 h-full w-64 bg-white/75 shadow-md rounded-l-lg p-4 transition-transform transform translate-x-0 duration-300 ease-in-out">
             <ul className="space-y-4">
               <li>
-                <Link href="/" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <a href="/" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Home
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <a href="/about" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   About
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/services" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <a href="/services" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Services
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <a href="/events" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Events
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                <a href="/contact" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Contact
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
