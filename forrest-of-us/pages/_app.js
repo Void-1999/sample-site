@@ -1,6 +1,8 @@
 import { MotionConfig, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
+import { useEffect } from 'react';
+
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
