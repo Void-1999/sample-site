@@ -16,30 +16,30 @@ const Header = () => {
           Categories
         </button>
         {isMenuOpen && (
-          <div className="absolute top-16 right-0 bg-white shadow-md rounded-lg p-4 w-64">
-            <ul className="space-y-2">
+          <div className="fixed top-0 right-0 h-full w-64 bg-white/75 shadow-md rounded-l-lg p-4 transition-transform transform translate-x-full duration-300 ease-in-out">
+            <ul className="space-y-4">
               <li>
-                <Link href="/" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/about" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/services" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/events" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-100">
+                <Link href="/contact" className="block px-4 py-2 hover:bg-gray-100 text-black">
                   Contact
                 </Link>
               </li>
