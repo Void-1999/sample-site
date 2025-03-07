@@ -13,7 +13,9 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-2xl font-bold">Forrest of Us</h1>
         <button onClick={toggleMenu} className="hover:underline">
-          Categories
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
         </button>
         {isMenuOpen && (
           <div className="fixed top-0 right-0 h-full w-64 bg-white/75 shadow-md rounded-l-lg p-4 transition-transform transform translate-x-full duration-300 ease-in-out">
