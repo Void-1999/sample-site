@@ -2,7 +2,7 @@ const Services = () => {
  return (
   <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center" style={{ backgroundImage: 'url(/background.jpg)' }}>
       <div className="container mx-auto p-4">
-        <h1 className="text-5xl font-bold mb-6 text-black">What We Do at Forrest of Us:</h1>
+        <h1 className="text-5xl font-bold mb-6 text-black">What We Do at ForRest Of Us:</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="p-6 bg-wood shadow-md rounded-lg">
             <h2 className="text-2xl font-bold mb-4 text-black">Zero Waste Communities</h2>
