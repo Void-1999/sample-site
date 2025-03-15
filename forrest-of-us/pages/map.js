@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet.fullscreen/dist/leaflet.fullscreen.css';
+import 'leaflet.fullscreen'; // Correct import for leaflet.fullscreen
 import axios from 'axios';
 
 const MapPage = () => {
