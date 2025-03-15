@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';  // Import dynamic from Next.js
+import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
 import styles from '../styles/Maps.module.css';
 
@@ -9,7 +9,7 @@ const Maps = () => {
     useEffect(() => {
         const fetchBinLocations = async () => {
             try {
-                const response = await fetch('/api/bin-locations');  // Adjust URL if necessary
+                const response = await fetch('/api/bin-locations');
                 const data = await response.json();
                 setBinLocations(data);
             } catch (error) {
@@ -21,34 +21,40 @@ const Maps = () => {
     }, []);
 
     const renderMap = () => {
-        if (typeof window === 'undefined') return;  // Ensure this code only runs on the client-side
+        if (typeof window === 'undefined') return;
 
-        const L = require('leaflet');  // Import Leaflet only when in the browser
+        const L = require('leaflet');
 
-        const map = L.map('map').setView([0, 0], 13);
+        // Calculate the average latitude and longitude to center the map over all bins
+        const latitudes = binLocations.map(bin => bin.latitude);
+        const longitudes = binLocations.map(bin => bin.longitude);
+
+        const averageLatitude = latitudes.reduce((a, b) => a + b, 0) / latitudes.length;
+        const averageLongitude = longitudes.reduce((a, b) => a + b, 0) / longitudes.length;
+
+        const map = L.map('map').setView([averageLatitude, averageLongitude], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        if (binLocations.length > 0) {
-            map.setView([binLocations[0].latitude, binLocations[0].longitude], 13);
-
-            binLocations.forEach(bin => {
-                L.marker([bin.latitude, bin.longitude])
-                    .addTo(map)
-                    .bindPopup(`
-                        <b>${bin.name}</b><br>
-                        Latitude: ${bin.latitude}, Longitude: ${bin.longitude}<br>
-                        <img src="/${bin.imagePath}" alt="${bin.name}" width="100" />
-                    `);
-            });
-        }
+        binLocations.forEach(bin => {
+            L.marker([bin.latitude, bin.longitude])
+                .addTo(map)
+                .bindPopup(`
+                    <b>${bin.name}</b><br>
+                    🌍 Location: <a href="https://www.google.com/maps?q=${bin.latitude},${bin.longitude}" target="_blank">View on Google Maps</a><br>
+                    🗓️ Added On: ${new Date(bin.createdAt).toLocaleString()} UTC<br>
+                    ${bin.imagePath ? `<img src="/${bin.imagePath}" alt="${bin.name}" width="100" />` : ''}
+                `);
+        });
     };
 
     useEffect(() => {
-        renderMap();
+        if (binLocations.length > 0) {
+            renderMap();
+        }
     }, [binLocations]);
 
     return (
