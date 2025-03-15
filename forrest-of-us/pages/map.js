@@ -2,7 +2,7 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
-const MapComponent = dynamic(() => import('../components/Map'), {
+const MapComponent = dynamic(() => import('../components/map'), {
   loading: () => <p>Loading...</p>,
   ssr: false // Disable server-side rendering
 });
