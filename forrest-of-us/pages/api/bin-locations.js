@@ -12,8 +12,13 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
         try {
             const binLocations = await BinLocation.find({});
+            
+            // Log data to check if retrieval is successful
+            console.log('Retrieved Bin Locations:', binLocations);
+            
             res.status(200).json(binLocations);
         } catch (error) {
+            console.error('Failed to retrieve bin locations:', error);
             res.status(500).json({ error: 'Failed to retrieve bin locations' });
         }
     } else {
