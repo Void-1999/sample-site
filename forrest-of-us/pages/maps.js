@@ -68,7 +68,16 @@ const Maps = () => {
                 >
                     <Popup>
                         <strong>{location.name}</strong><br />
-                        Added on: {new Date(location.createdAt).toLocaleString()}
+                        Added on: {new Date(location.createdAt).toLocaleString()}<br />
+                        {location.imagePath && (
+                            <div style={{ marginTop: '5px' }}>
+                                <img 
+                                    src={`/uploads/${location.imagePath}`} 
+                                    alt={location.name} 
+                                    style={{ width: '100px', height: '100px', objectFit: 'cover', marginTop: '5px' }} 
+                                />
+                            </div>
+                        )}
                     </Popup>
                 </Marker>
             ))}
