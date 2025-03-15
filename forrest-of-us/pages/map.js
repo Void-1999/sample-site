@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet-fullscreen-control/dist/leaflet.fullscreen.css';
+import 'leaflet.fullscreen/dist/leaflet.fullscreen.css';
 import axios from 'axios';
 
 const MapPage = () => {
@@ -19,7 +19,6 @@ const MapPage = () => {
         console.error('Error fetching bin locations:', error);
       }
     };
-
     fetchBinLocations();
   }, []);
 
@@ -31,7 +30,6 @@ const MapPage = () => {
           map.removeLayer(layer);
         }
       });
-
       // Add new markers
       binLocations.forEach((location) => {
         const icon = L.icon({
@@ -40,7 +38,6 @@ const MapPage = () => {
           iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
           popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
         });
-
         const marker = L.marker([location.latitude, location.longitude], { icon })
           .bindPopup(`
             <div>
@@ -59,8 +56,7 @@ const MapPage = () => {
 
   useEffect(() => {
     const initMap = () => {
-      const mapInstance = L.map('map').setView([40.7128, -74.0], 10);
-
+      const mapInstance = L.map('map').setView([40.7128, -74.00600]);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(mapInstance);
@@ -84,7 +80,6 @@ const MapPage = () => {
       mapInstance.on('enterFullscreen', function () {
         console.log('entered fullscreen');
       });
-
       mapInstance.on('exitFullscreen', function () {
         console.log('exited fullscreen');
       });
