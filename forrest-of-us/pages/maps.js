@@ -1,24 +1,19 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
-import L from 'leaflet'; // Import Leaflet for custom icons
+import { useRouter } from 'next/router';
+import 'leaflet/dist/leaflet.css';
 
+// Dynamically import leaflet components
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false });
 const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false });
 const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false });
 
-// Custom marker icon setup
-const customIcon = new L.Icon({
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [0, -41]
-});
-
 const Maps = () => {
     const [binLocations, setBinLocations] = useState([]);
     const [mapCenter, setMapCenter] = useState([0, 0]);
+    const [customIcon, setCustomIcon] = useState(null);
 
     useEffect(() => {
         const fetchBinLocations = async () => {
@@ -41,7 +36,23 @@ const Maps = () => {
         fetchBinLocations();
     }, []);
 
-    if (mapCenter[0] === 0 && mapCenter[1] === 0) return <div>Loading map...</div>;
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const L = require('leaflet');
+
+            // Create a custom marker icon
+            const icon = new L.Icon({
+                iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+                iconSize: [30, 45],
+                iconAnchor: [15, 45],
+                popupAnchor: [0, -45]
+            });
+
+            setCustomIcon(icon);
+        }
+    }, []);
+
+    if (!customIcon || mapCenter[0] === 0 && mapCenter[1] === 0) return <div>Loading map...</div>;
 
     return (
         <MapContainer center={mapCenter} zoom={13} style={{ height: '100vh', width: '100%' }}>
