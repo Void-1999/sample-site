@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet-control-fullscreen/dist/leaflet.fullscreen.css';
+import 'leaflet-fullscreen-control/dist/leaflet.fullscreen.css';
 import axios from 'axios';
 
 const MapPage = () => {
@@ -35,7 +35,7 @@ const MapPage = () => {
       // Add new markers
       binLocations.forEach((location) => {
         const icon = L.icon({
-          iconUrl: location.imagePath, // Assuming imagePath contains the URL of the custom icon
+          iconUrl: `/images/${location.imagePath}`, // Adjust the path as needed
           iconSize: [38, 95], // size of the icon
           iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
           popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
@@ -68,7 +68,26 @@ const MapPage = () => {
       // Add controls
       L.control.zoom().addTo(mapInstance);
       L.control.scale().addTo(mapInstance);
-      L.control.fullscreen().addTo(mapInstance);
+
+      // Add fullscreen control
+      L.control.fullscreen({
+        position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, default topleft
+        title: 'Show me the fullscreen !', // change the title of the button, default Full Screen
+        titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
+        content: null, // change the content of the button, can be HTML, default null
+        forceSeparateButton: true, // force separate button to detach from zoom buttons, default false
+        forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
+        fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
+      }).addTo(mapInstance);
+
+      // Events for fullscreen
+      mapInstance.on('enterFullscreen', function () {
+        console.log('entered fullscreen');
+      });
+
+      mapInstance.on('exitFullscreen', function () {
+        console.log('exited fullscreen');
+      });
 
       setMap(mapInstance);
     };
