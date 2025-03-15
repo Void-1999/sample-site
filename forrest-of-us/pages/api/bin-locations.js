@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 import BinLocation from '../../models/BinLocation';
 
 const connectDB = async () => {
-    if (mongoose.connections[0].readyState) return; 
-    await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    if (mongoose.connections[0].readyState) return;
+    await mongoose.connect('mongodb+srv://voidforyaner:Eternal2121@cluster21.klzj92w.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 };
 
 export default async function handler(req, res) {
@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
         try {
             const binLocations = await BinLocation.find({});
-            console.log('Retrieved Bin Locations:', binLocations);
+            
             res.status(200).json(binLocations);
         } catch (error) {
             res.status(500).json({ error: 'Failed to retrieve bin locations' });

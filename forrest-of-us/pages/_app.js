@@ -4,6 +4,7 @@ import { MotionConfig, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import '../styles/globals.css';
+import 'leaflet/dist/leaflet.css';
 
 function MyApp({ Component, pageProps }) {
  const router = useRouter();
