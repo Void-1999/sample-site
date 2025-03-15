@@ -87,7 +87,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/map" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                  <Link href="/maps" className="block px-4 py-2 hover:bg-gray-100 text-black">
                     Map
                   </Link>
                 </li>
