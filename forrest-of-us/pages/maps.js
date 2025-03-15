@@ -72,7 +72,7 @@ const Maps = () => {
                         {location.imagePath && (
                             <div style={{ marginTop: '5px' }}>
                                 <img 
-                                    src={`/uploads/${location.imagePath}`} 
+                                    src={`../uploads/${location.imagePath}`} 
                                     alt={location.name} 
                                     style={{ width: '100px', height: '100px', objectFit: 'cover', marginTop: '5px' }} 
                                 />
