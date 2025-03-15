@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import 'leaflet/dist/leaflet.css';
 
 // Dynamically import leaflet components
@@ -14,6 +13,7 @@ const Maps = () => {
     const [binLocations, setBinLocations] = useState([]);
     const [mapCenter, setMapCenter] = useState([0, 0]);
     const [customIcon, setCustomIcon] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchBinLocations = async () => {
@@ -30,6 +30,8 @@ const Maps = () => {
                 }
             } catch (error) {
                 console.error('Error fetching bin locations:', error);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -52,7 +54,14 @@ const Maps = () => {
         }
     }, []);
 
-    if (!customIcon || mapCenter[0] === 0 && mapCenter[1] === 0) return <div>Loading map...</div>;
+    if (loading || !customIcon || (mapCenter[0] === 0 && mapCenter[1] === 0)) {
+        return (
+            <div style={styles.loadingContainer}>
+                <div style={styles.loader}></div>
+                <p style={styles.loadingText}>Loading Map...</p>
+            </div>
+        );
+    }
 
     return (
         <MapContainer center={mapCenter} zoom={13} style={{ height: '100vh', width: '100%' }}>
@@ -72,7 +81,7 @@ const Maps = () => {
                         {location.imagePath && (
                             <div style={{ marginTop: '5px' }}>
                                 <img 
-                                    src={`../uploads/${location.imagePath}`} 
+                                    src={`/uploads/${location.imagePath}`} 
                                     alt={location.name} 
                                     style={{ width: '100px', height: '100px', objectFit: 'cover', marginTop: '5px' }} 
                                 />
@@ -83,6 +92,35 @@ const Maps = () => {
             ))}
         </MapContainer>
     );
+};
+
+const styles = {
+    loadingContainer: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#f0f0f0',
+        zIndex: 1000,
+    },
+    loader: {
+        border: '6px solid #f3f3f3',
+        borderRadius: '50%',
+        borderTop: '6px solid #4CAF50',
+        width: '50px',
+        height: '50px',
+        animation: 'spin 1s linear infinite',
+    },
+    loadingText: {
+        marginTop: '10px',
+        fontSize: '18px',
+        color: '#333',
+    }
 };
 
 export default Maps;
