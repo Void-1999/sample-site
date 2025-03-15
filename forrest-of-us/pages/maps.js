@@ -1,15 +1,24 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
+import L from 'leaflet'; // Import Leaflet for custom icons
 
 const MapContainer = dynamic(() => import('react-leaflet').then(mod => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import('react-leaflet').then(mod => mod.TileLayer), { ssr: false });
 const Marker = dynamic(() => import('react-leaflet').then(mod => mod.Marker), { ssr: false });
 const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), { ssr: false });
 
+// Custom marker icon setup
+const customIcon = new L.Icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [0, -41]
+});
+
 const Maps = () => {
     const [binLocations, setBinLocations] = useState([]);
-    const [mapCenter, setMapCenter] = useState([0, 0]); // Default location, will be updated later
+    const [mapCenter, setMapCenter] = useState([0, 0]);
 
     useEffect(() => {
         const fetchBinLocations = async () => {
@@ -20,7 +29,6 @@ const Maps = () => {
                 if (locations.length > 0) {
                     setBinLocations(locations);
 
-                    // Calculate the map center based on the average of all bin locations
                     const avgLat = locations.reduce((sum, loc) => sum + loc.latitude, 0) / locations.length;
                     const avgLng = locations.reduce((sum, loc) => sum + loc.longitude, 0) / locations.length;
                     setMapCenter([avgLat, avgLng]);
@@ -42,7 +50,11 @@ const Maps = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             {binLocations.map((location) => (
-                <Marker key={location._id} position={[location.latitude, location.longitude]}>
+                <Marker 
+                    key={location._id} 
+                    position={[location.latitude, location.longitude]} 
+                    icon={customIcon}
+                >
                     <Popup>
                         <strong>{location.name}</strong><br />
                         Added on: {new Date(location.createdAt).toLocaleString()}

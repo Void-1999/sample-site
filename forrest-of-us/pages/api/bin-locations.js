@@ -3,7 +3,7 @@ import BinLocation from '../../models/BinLocation';
 
 const connectDB = async () => {
     if (mongoose.connections[0].readyState) return;
-    await mongoose.connect('mongodb+srv://voidforyaner:Eternal2121@cluster21.klzj92w.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect('mongodb+srv://voidforyaner:Eternal2121@cluster21.klzj92w.mongodb.net/?retryWrites=true&w=majority');
 };
 
 export default async function handler(req, res) {
