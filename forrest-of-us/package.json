@@ -19,6 +19,8 @@
     "dotenv": "^10.0.0",
     "axios": "^0.21.1",
     "react-map-gl": "^6.1.17",
-    "maplibre-gl": "^2.1.9"
+    "maplibre-gl": "^2.1.9",
+    "leaflet": "^1.9.4",
+    "next-images": "^1.8.4"
   }
 }
