@@ -1,6 +1,5 @@
-/* styles/Maps.module.css */
 .map {
-    height: 600px;
+    height: 80vh; /* Ensure the map takes enough space on the screen */
     width: 100%;
     margin-top: 20px;
 }

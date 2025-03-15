@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 import styles from '../styles/Maps.module.css';
 
 const Maps = () => {
@@ -20,41 +21,37 @@ const Maps = () => {
         fetchBinLocations();
     }, []);
 
-    const renderMap = () => {
-        if (typeof window === 'undefined') return;
+    useEffect(() => {
+        if (binLocations.length === 0 || typeof window === 'undefined') return;
 
-        const L = require('leaflet');
+        // Clear previous map instance if it exists
+        if (window.map) window.map.remove();
 
-        // Calculate the average latitude and longitude to center the map over all bins
+        // Calculate the average latitude and longitude to center the map
         const latitudes = binLocations.map(bin => bin.latitude);
         const longitudes = binLocations.map(bin => bin.longitude);
-
+        
         const averageLatitude = latitudes.reduce((a, b) => a + b, 0) / latitudes.length;
         const averageLongitude = longitudes.reduce((a, b) => a + b, 0) / longitudes.length;
 
-        const map = L.map('map').setView([averageLatitude, averageLongitude], 13);
+        // Initialize the map
+        window.map = L.map('map').setView([averageLatitude, averageLongitude], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+        }).addTo(window.map);
 
         binLocations.forEach(bin => {
             L.marker([bin.latitude, bin.longitude])
-                .addTo(map)
+                .addTo(window.map)
                 .bindPopup(`
                     <b>${bin.name}</b><br>
-                    🌍 Location: <a href="https://www.google.com/maps?q=${bin.latitude},${bin.longitude}" target="_blank">View on Google Maps</a><br>
+                    🌍 <a href="https://www.google.com/maps?q=${bin.latitude},${bin.longitude}" target="_blank">View on Google Maps</a><br>
                     🗓️ Added On: ${new Date(bin.createdAt).toLocaleString()} UTC<br>
                     ${bin.imagePath ? `<img src="/${bin.imagePath}" alt="${bin.name}" width="100" />` : ''}
                 `);
         });
-    };
-
-    useEffect(() => {
-        if (binLocations.length > 0) {
-            renderMap();
-        }
     }, [binLocations]);
 
     return (
