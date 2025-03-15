@@ -41,8 +41,6 @@ const Maps = () => {
     useEffect(() => {
         if (typeof window !== 'undefined') {
             const L = require('leaflet');
-
-            // Create a custom marker icon
             const icon = new L.Icon({
                 iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
                 iconSize: [30, 45],
@@ -59,6 +57,12 @@ const Maps = () => {
             <div style={styles.loadingContainer}>
                 <div style={styles.loader}></div>
                 <p style={styles.loadingText}>Loading Map...</p>
+                <style jsx>{`
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                `}</style>
             </div>
         );
     }
