@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import L from 'leaflet';
+import dynamic from 'next/dynamic';  // Import dynamic from Next.js
 import 'leaflet/dist/leaflet.css';
 import styles from '../styles/Maps.module.css';
 
@@ -18,6 +18,12 @@ const Maps = () => {
         };
 
         fetchBinLocations();
+    }, []);
+
+    const renderMap = () => {
+        if (typeof window === 'undefined') return;  // Ensure this code only runs on the client-side
+
+        const L = require('leaflet');  // Import Leaflet only when in the browser
 
         const map = L.map('map').setView([0, 0], 13);
 
@@ -26,19 +32,8 @@ const Maps = () => {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-    }, []);
-
-    useEffect(() => {
         if (binLocations.length > 0) {
-            const map = L.map('map').setView(
-                [binLocations[0].latitude, binLocations[0].longitude],
-                13
-            );
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
+            map.setView([binLocations[0].latitude, binLocations[0].longitude], 13);
 
             binLocations.forEach(bin => {
                 L.marker([bin.latitude, bin.longitude])
@@ -50,6 +45,10 @@ const Maps = () => {
                     `);
             });
         }
+    };
+
+    useEffect(() => {
+        renderMap();
     }, [binLocations]);
 
     return (
@@ -60,4 +59,4 @@ const Maps = () => {
     );
 };
 
-export default Maps;
+export default dynamic(() => Promise.resolve(Maps), { ssr: false });
