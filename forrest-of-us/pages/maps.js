@@ -32,6 +32,8 @@ const Maps = () => {
         fetchBinLocations();
     }, []);
 
+    if (typeof window === 'undefined') return null; // Prevent SSR issues
+
     return (
         <div style={{ height: '100vh', width: '100%' }}>
             <MapContainer center={mapCenter} zoom={13} style={{ height: '100%', width: '100%' }}>
