@@ -1,25 +1,25 @@
 // components/Map.js
 import { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-map-gl';
+import { Map, Marker, Popup, Source, Layer } from 'react-map-gl';
 import axios from 'axios';
 
 const MapComponent = () => {
-  const [binLocations, setBinLocations] = useState([]);
+ const [binLocations, setBinLocations] = useState([]);
 
-  useEffect(() => {
-    const fetchBinLocations = async () => {
-      try {
-        const response = await axios.get('/api/bin-locations');
-        setBinLocations(response.data);
-      } catch (error) {
-        console.error('Error fetching bin locations:', error);
-      }
-    };
-    fetchBinLocations();
-  }, []);
+ useEffect(() => {
+  const fetchBinLocations = async () => {
+   try {
+    const response = await axios.get('/api/bin-locations');
+    setBinLocations(response.data);
+   } catch (error) {
+    console.error('Error fetching bin locations:', error);
+   }
+  };
+  fetchBinLocations();
+ }, []);
 
-  return (
-    <MapContainer
+ return (
+  <Map
       style={{ width: '100%', height: '80%' }}
       initialViewState={{
         longitude: -74.00600,
@@ -27,12 +27,11 @@ const MapComponent = () => {
         zoom: 10
       }}
     >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <Source id="mapbox/streets-v11">
+        <Layer type="raster" />
+      </Source>
       {binLocations.map((location) => (
-        <Marker key={location._id} latitude={location.latitude} longitude={location.longitude}>
+        <Marker key={location._id} longitude={location.longitude} latitude={location.latitude}>
           <Popup onClose={() => {}}>
             <div>
               <h3>{location.name}</h3>
@@ -42,8 +41,8 @@ const MapComponent = () => {
           </Popup>
         </Marker>
       ))}
-    </MapContainer>
-  );
+    </Map>
+ );
 };
 
 export default MapComponent;

@@ -3,30 +3,50 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
- const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
- useEffect(() => {
-  const handleOutsideClick = (event) => {
-   const menu = document.querySelector('.fixed');
-   if (menu && !menu.contains(event.target)) {
-    setIsMenuOpen(false);
-   }
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      const menu = document.querySelector('.fixed');
+      if (menu && !menu.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
-  document.addEventListener('mousedown', handleOutsideClick);
-  return () => {
-   document.removeEventListener('mousedown', handleOutsideClick);
-  };
- }, []);
 
- const toggleMenu = () => {
-  setIsMenuOpen(!isMenuOpen);
- };
-
- return (
-  <header className="bg-gray-800 text-white p-4 fixed top-0 left-0 w-full z-50">
+  return (
+    <header className="bg-gray-800 text-white p-4 fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-2xl font-bold">ForRest of Us</h1>
-        <button onClick={toggleMenu} className="hover:underline">
+        <nav className="hidden md:flex space-x-4">
+          <Link href="/" className="hover:underline">
+            Home
+          </Link>
+          <Link href="/about" className="hover:underline">
+            About
+          </Link>
+          <Link href="/services" className="hover:underline">
+            Services
+          </Link>
+          <Link href="/events" className="hover:underline">
+            Events
+          </Link>
+          <Link href="/contact" className="hover:underline">
+            Contact
+          </Link>
+          <Link href="/map" className="hover:underline">
+            Map
+          </Link>
+        </nav>
+        <button onClick={toggleMenu} className="md:hidden hover:underline">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
@@ -66,13 +86,18 @@ const Header = () => {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link href="/map" className="block px-4 py-2 hover:bg-gray-100 text-black">
+                    Map
+                  </Link>
+                </li>
               </ul>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
     </header>
- );
+  );
 };
 
 export default Header;
