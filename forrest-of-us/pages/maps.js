@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
 import styles from '../styles/Maps.module.css';
 
+// Only import Leaflet when rendering on the client-side
 const Maps = () => {
     const [binLocations, setBinLocations] = useState([]);
 
@@ -24,13 +24,15 @@ const Maps = () => {
     useEffect(() => {
         if (binLocations.length === 0 || typeof window === 'undefined') return;
 
+        const L = require('leaflet');  // Importing Leaflet on the client-side
+
         // Clear previous map instance if it exists
         if (window.map) window.map.remove();
 
         // Calculate the average latitude and longitude to center the map
         const latitudes = binLocations.map(bin => bin.latitude);
         const longitudes = binLocations.map(bin => bin.longitude);
-        
+
         const averageLatitude = latitudes.reduce((a, b) => a + b, 0) / latitudes.length;
         const averageLongitude = longitudes.reduce((a, b) => a + b, 0) / longitudes.length;
 
@@ -62,4 +64,4 @@ const Maps = () => {
     );
 };
 
-export default dynamic(() => Promise.resolve(Maps), { ssr: false });
+export default dynamic(() => Promise.resolve(Maps), { ssr: false });  // Ensuring this is only rendered on the client-side
