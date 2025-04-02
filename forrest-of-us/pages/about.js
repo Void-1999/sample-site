@@ -12,7 +12,7 @@ const About = () => {
           <li>Reduce Pollution: Protect wildlife and ecosystems.</li>
           <li>Conserve Resources: Secure resources for future generations.</li>
           <li>Lower Carbon Emissions: Combat climate change.</li>
-          <li>Create Sustainable Communities: Generate green jobs and boost local economies.</li>
+          <li>Create Sustainable Communities: Generate green jobs and boost local economies. </li>
         </ul>
 
         {/* Grid Layout */}
