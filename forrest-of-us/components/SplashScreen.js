@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
-import animationData from "../public/tree-grow.json";
+import animationData from "../public/tree-animation.json";
 
 export default function SplashScreen({ onComplete }) {
   const [done, setDone] = useState(false);
