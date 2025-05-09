@@ -40,7 +40,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="text-center relative z-10 px-4">
           <div className="mb-8">
-            <Image src="/public/logo.jpg" alt="ForRest Of Us Logo" width={180} height={180} className="mx-auto" />
+            <Image src="/logo.jpg" alt="ForRest Of Us Logo" width={180} height={180} className="mx-auto" />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">ForRest Of Us</h1>
           <p className="text-xl md:text-2xl text-white mb-12">Building sustainable communities through collective action</p>
@@ -65,7 +65,7 @@ const Home = () => {
             {/* Jamming Sessions */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
               <div className="h-60 relative overflow-hidden">
-                <Image src="/public/jamming.jpg" alt="Jamming Sessions" layout="fill" objectFit="cover" />
+                <Image src="/jamming.jpg" alt="Jamming Sessions" layout="fill" objectFit="cover" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3">Jamming Sessions</h3>
@@ -78,7 +78,7 @@ const Home = () => {
             {/* Education */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
               <div className="h-60 relative overflow-hidden">
-                <Image src="/public/education.jpg" alt="Education" layout="fill" objectFit="cover" />
+                <Image src="/education.jpg" alt="Education" layout="fill" objectFit="cover" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3">Education</h3>
@@ -91,7 +91,7 @@ const Home = () => {
             {/* Climate Change */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
               <div className="h-60 relative overflow-hidden">
-                <Image src="/public/climate.jpg" alt="Climate Change" layout="fill" objectFit="cover" />
+                <Image src="/climate.jpg" alt="Climate Change" layout="fill" objectFit="cover" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3">Climate Change</h3>
@@ -104,7 +104,7 @@ const Home = () => {
             {/* Film Screening */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
               <div className="h-60 relative overflow-hidden">
-                <Image src="/public/film.jpg" alt="Film Screening" layout="fill" objectFit="cover" />
+                <Image src="/film.jpg" alt="Film Screening" layout="fill" objectFit="cover" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3">Film Screening</h3>
@@ -117,7 +117,7 @@ const Home = () => {
             {/* Maker's space */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
               <div className="h-60 relative overflow-hidden">
-                <Image src="/public/maker.jpg" alt="Maker's Space" layout="fill" objectFit="cover" />
+                <Image src="/maker.jpg" alt="Maker's Space" layout="fill" objectFit="cover" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3">Maker's Space</h3>
@@ -130,7 +130,7 @@ const Home = () => {
             {/* Food Lab */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
               <div className="h-60 relative overflow-hidden">
-                <Image src="/public/food.jpg" alt="Food Lab" layout="fill" objectFit="cover" />
+                <Image src="/food.jpg" alt="Food Lab" layout="fill" objectFit="cover" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold mb-3">Food Lab</h3>
@@ -154,7 +154,7 @@ const Home = () => {
               {/* Slow Living Workshop */}
               <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
                 <div className="h-48 relative overflow-hidden">
-                  <Image src="/public/workshop.jpg" alt="Slow Living Workshop" layout="fill" objectFit="cover" />
+                  <Image src="/workshop.jpg" alt="Slow Living Workshop" layout="fill" objectFit="cover" />
                 </div>
                 <div className="p-6">
                   <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-3">May 19-25</span>
@@ -176,7 +176,7 @@ const Home = () => {
               {/* Plantation Drive */}
               <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
                 <div className="h-48 relative overflow-hidden">
-                  <Image src="/public/plantation.jpg" alt="Flowering Plants Plantation Drive" layout="fill" objectFit="cover" />
+                  <Image src="/plantation.jpg" alt="Flowering Plants Plantation Drive" layout="fill" objectFit="cover" />
                 </div>
                 <div className="p-6">
                   <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-3">May 15</span>
@@ -196,7 +196,7 @@ const Home = () => {
               {/* Jamming Session */}
               <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
                 <div className="h-48 relative overflow-hidden">
-                  <Image src="/public/jamming-event.jpg" alt="Jamming Session" layout="fill" objectFit="cover" />
+                  <Image src="/jamming-event.jpg" alt="Jamming Session" layout="fill" objectFit="cover" />
                 </div>
                 <div className="p-6">
                   <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-3">Coming Soon</span>
@@ -220,7 +220,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all">
                 <div className="h-48 relative overflow-hidden">
-                  <Image src="/public/dead-poets.jpg" alt="Film Screening: Dead Poet's Society" layout="fill" objectFit="cover" />
+                  <Image src="/dead-poets.jpg" alt="Film Screening: Dead Poet's Society" layout="fill" objectFit="cover" />
                 </div>
                 <div className="p-6">
                   <h4 className="text-xl font-semibold mb-2">Film Screening: Dead Poet's Society</h4>
@@ -245,7 +245,7 @@ const Home = () => {
             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7310815074095435776" target="_blank" rel="noopener noreferrer" className="block group">
               <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
                 <div className="h-72 relative overflow-hidden">
-                  <Image src="/public/intro.jpg" alt="Introduction" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+                  <Image src="/intro.jpg" alt="Introduction" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="p-6 bg-white">
                   <h3 className="text-2xl font-semibold mb-3 group-hover:text-green-600 transition-colors">An Introduction</h3>
@@ -261,7 +261,7 @@ const Home = () => {
             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7318192085512167424" target="_blank" rel="noopener noreferrer" className="block group">
               <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
                 <div className="h-72 relative overflow-hidden">
-                  <Image src="/public/education-story.jpg" alt="Education" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+                  <Image src="/education-story.jpg" alt="Education" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="p-6 bg-white">
                   <h3 className="text-2xl font-semibold mb-3 group-hover:text-green-600 transition-colors">Education</h3>
@@ -277,7 +277,7 @@ const Home = () => {
             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7324347337378525185" target="_blank" rel="noopener noreferrer" className="block group">
               <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
                 <div className="h-72 relative overflow-hidden">
-                  <Image src="/public/film-story.jpg" alt="Film Screenings" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+                  <Image src="/film-story.jpg" alt="Film Screenings" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="p-6 bg-white">
                   <h3 className="text-2xl font-semibold mb-3 group-hover:text-green-600 transition-colors">Film Screenings, Meaningful Cinema</h3>
@@ -292,7 +292,7 @@ const Home = () => {
             {/* Jamming */}
             <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="h-72 relative overflow-hidden">
-                <Image src="/public/jamming-story.jpg" alt="Jamming" layout="fill" objectFit="cover" />
+                <Image src="/jamming-story.jpg" alt="Jamming" layout="fill" objectFit="cover" />
               </div>
               <div className="p-6 bg-white">
                 <h3 className="text-2xl font-semibold mb-3">Jamming, How Music Heals</h3>
@@ -317,7 +317,7 @@ const Home = () => {
           <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="h-96 lg:h-auto relative">
-                <Image src="/public/stay.jpg" alt="Our Stay" layout="fill" objectFit="cover" />
+                <Image src="/stay.jpg" alt="Our Stay" layout="fill" objectFit="cover" />
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <h3 className="text-3xl font-semibold mb-6">What we offer</h3>
@@ -375,7 +375,7 @@ const Home = () => {
               <div className="md:flex">
                 <div className="md:w-1/3">
                   <div className="h-80 md:h-full relative">
-                    <Image src="/public/aditya.jpg" alt="Aditya Tripathi" layout="fill" objectFit="cover" />
+                    <Image src="/aditya.jpg" alt="Aditya Tripathi" layout="fill" objectFit="cover" />
                   </div>
                 </div>
                 <div className="p-6 md:w-2/3">
@@ -393,7 +393,7 @@ const Home = () => {
               <div className="md:flex">
                 <div className="md:w-1/3">
                   <div className="h-80 md:h-full relative">
-                    <Image src="/public/vidipta.jpg" alt="Vidipta Bafna" layout="fill" objectFit="cover" />
+                    <Image src="/vidipta.jpg" alt="Vidipta Bafna" layout="fill" objectFit="cover" />
                   </div>
                 </div>
                 <div className="p-6 md:w-2/3">
