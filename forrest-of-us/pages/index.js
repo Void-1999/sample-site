@@ -277,7 +277,7 @@ const Home = () => {
             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7324347337378525185" target="_blank" rel="noopener noreferrer" className="block group">
               <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
                 <div className="h-72 relative overflow-hidden">
-                  <Image src="/film-story.jpg" alt="Film Screenings" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+                  <Image src="/film.jpg" alt="Film Screenings" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="p-6 bg-white">
                   <h3 className="text-2xl font-semibold mb-3 group-hover:text-green-600 transition-colors">Film Screenings, Meaningful Cinema</h3>
