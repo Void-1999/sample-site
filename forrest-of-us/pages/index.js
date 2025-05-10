@@ -292,7 +292,7 @@ const Home = () => {
             {/* Jamming */}
             <div className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="h-72 relative overflow-hidden">
-                <Image src="/jamming-story.jpg" alt="Jamming" layout="fill" objectFit="cover" />
+                <Image src="/jamming.jpg" alt="Jamming" layout="fill" objectFit="cover" />
               </div>
               <div className="p-6 bg-white">
                 <h3 className="text-2xl font-semibold mb-3">Jamming, How Music Heals</h3>
