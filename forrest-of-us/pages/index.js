@@ -39,7 +39,7 @@ const Home = () => {
         style={{ backgroundImage: 'url(/background.jpg)' }}>
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="absolute top-4 left-4 flex items-center space-x-2">
-          <Image src="/logo-png" alt="ForRest Of Us Logo" width={40} height={40} />
+          <Image src="/logo.png" alt="ForRest Of Us Logo" width={40} height={40} />
           <h1 className="text-2xl md:text-3xl font-bold text-white">ForRest Of Us</h1>
         </div>
         <div className="text-center relative z-10 px-4">
