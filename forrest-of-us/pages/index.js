@@ -511,7 +511,7 @@ const Home = () => {
         className="block group"
       >
         <div className="h-64 relative rounded-lg overflow-hidden shadow-md">
-          <Image src="/images/gallery-1.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+          <Image src="/album-1.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Album</span>
           </div>
@@ -525,7 +525,7 @@ const Home = () => {
         className="block group"
       >
         <div className="h-64 relative rounded-lg overflow-hidden shadow-md">
-          <Image src="/images/gallery-2.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+          <Image src="/album-2.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Album</span>
           </div>
@@ -539,7 +539,7 @@ const Home = () => {
         className="block group"
       >
         <div className="h-64 relative rounded-lg overflow-hidden shadow-md">
-          <Image src="/images/gallery-3.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+          <Image src="/album-3.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Album</span>
           </div>
@@ -553,7 +553,7 @@ const Home = () => {
         className="block group"
       >
         <div className="h-64 relative rounded-lg overflow-hidden shadow-md">
-          <Image src="/images/gallery-4.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+          <Image src="/album-4.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Album</span>
           </div>
@@ -567,7 +567,7 @@ const Home = () => {
         className="block group"
       >
         <div className="h-64 relative rounded-lg overflow-hidden shadow-md">
-          <Image src="/images/gallery-5.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+          <Image src="/album-5.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Album</span>
           </div>
@@ -581,7 +581,7 @@ const Home = () => {
         className="block group"
       >
         <div className="h-64 relative rounded-lg overflow-hidden shadow-md">
-          <Image src="/images/gallery-6.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+          <Image src="/album-6.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Album</span>
           </div>
@@ -595,7 +595,7 @@ const Home = () => {
         className="block group"
       >
         <div className="h-64 relative rounded-lg overflow-hidden shadow-md">
-          <Image src="/images/gallery-7.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+          <Image src="/album-7.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Album</span>
           </div>
@@ -609,7 +609,7 @@ const Home = () => {
         className="block group"
       >
         <div className="h-64 relative rounded-lg overflow-hidden shadow-md">
-          <Image src="/images/gallery-8.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
+          <Image src="/album-8.jpg" alt="Gallery Images" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-transform duration-300" />
           <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <span className="text-white font-medium">View Album</span>
           </div>
