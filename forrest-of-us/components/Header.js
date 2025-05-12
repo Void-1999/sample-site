@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,10 @@ const Header = () => {
   return (
     <header className="bg-gray-800 text-white p-4 fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">ForRest of Us</h1>
+        <div className="flex items-center space-x-2">
+          <Image src="/logo.png" alt="ForRest Of Us Logo" width={40} height={40} />
+          <h1 className="text-2xl font-bold">ForRest of Us</h1>
+        </div>
         <nav className="hidden md:flex space-x-4">
           <Link href="/" className="hover:underline">
             Home
