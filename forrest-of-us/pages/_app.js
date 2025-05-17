@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
  return (
   <>
    <Head>
-    <link rel="icon" href="/logo.jpg" />
+    <link rel="icon" href="/logo.png" />
    </Head>
    <MotionConfig reducedMotion="user">
     <AnimatePresence exitBeforeEnter>
