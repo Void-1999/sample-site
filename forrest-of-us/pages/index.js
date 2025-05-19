@@ -784,7 +784,7 @@ const Home = () => {
   <div className="max-w-6xl mx-auto px-4">
     <div className="flex flex-col md:flex-row justify-between items-center">
       <p className="text-sm text-center md:text-left">
-        © {new Date().getFullYear()} ForRest Of Us, An Initiative of BUOY SOCIAL FOUNDATION. All rights reserved.
+        © 2023 ForRest Of Us, An Initiative of BUOY SOCIAL FOUNDATION. All rights reserved.
       </p>
       <div className="flex space-x-4 mt-4 md:mt-0">
         <a href="https://www.instagram.com/forrestofus/" target="_blank" rel="noopener noreferrer" className="hover:text-green-500">
