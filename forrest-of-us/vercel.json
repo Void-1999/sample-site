@@ -1,0 +1,16 @@
+{
+    "redirects": [
+      {
+        "source": "/(.*)",
+        "destination": "https://www.forrestofus.org/$1",
+        "has": [
+          {
+            "type": "host",
+            "value": "forrestofus.org"
+          }
+        ],
+        "permanent": true
+      }
+    ]
+  }
+  

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import '../styles/globals.css';
 import 'leaflet/dist/leaflet.css';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
  const router = useRouter();
@@ -23,17 +24,20 @@ function MyApp({ Component, pageProps }) {
  }, [router.events]);
 
  return (
-  <MotionConfig reducedMotion="user">
-      <AnimatePresence exitBeforeEnter>
-        <main className="mt-16"> {/* Add a margin to push content below the header */}
-          <Component {...pageProps} key={router.route} />
-          <Header />
-        </main>
-      </AnimatePresence>
-    </MotionConfig>
+  <>
+   <Head>
+    <link rel="icon" href="/logo.png" />
+   </Head>
+   <MotionConfig reducedMotion="user">
+    <AnimatePresence exitBeforeEnter>
+     <main className="mt-16"> {/* Add a margin to push content below the header */}
+      <Component {...pageProps} key={router.route} />
+      <Header />
+     </main>
+    </AnimatePresence>
+   </MotionConfig>
+  </>
  );
 }
-
-
 
 export default MyApp;
